@@ -3,7 +3,7 @@
 return [
     'name' => 'Admin',
     'navigation-group'=>[
-        'name' => 'Administrator',
+        'name' => 'User Management',
         'enabled' => true,
     ],
 ];
