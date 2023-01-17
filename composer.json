@@ -1,7 +1,7 @@
 {
     "name": "sorethea/admin",
     "type": "laravel-module",
-    "version": "v0.0.1",
+    "version": "dev",
     "description": "",
     "authors": [
         {
