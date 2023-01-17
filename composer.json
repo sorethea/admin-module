@@ -1,5 +1,7 @@
 {
     "name": "sorethea/admin",
+    "type": "laravel-module",
+    "version": "dev",
     "description": "",
     "authors": [
         {
@@ -9,7 +11,9 @@
     ],
     "extra": {
         "laravel": {
-            "providers": [],
+            "providers": [
+                "Modules\\Admin\\Providers\\AdminServiceProvider"
+            ],
             "aliases": {
 
             }
