@@ -5,6 +5,7 @@ namespace Modules\Admin\Providers;
 use Filament\Facades\Filament;
 use Filament\Navigation\NavigationGroup;
 use Filament\PluginServiceProvider;
+use Modules\Admin\Filament\Resources\RoleResource;
 use Modules\Admin\Filament\Resources\UserResource;
 use Spatie\LaravelPackageTools\Package;
 use Modules\Admin\Filament\Pages\AdminPage;
@@ -18,6 +19,7 @@ class FilamentServiceProvider extends PluginServiceProvider
     protected array $pages = [];
     protected array $resources =[
         UserResource::class,
+        RoleResource::class,
     ];
     public function configurePackage(Package $package): void
     {
