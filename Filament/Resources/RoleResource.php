@@ -4,7 +4,7 @@ namespace Modules\Admin\Filament\Resources;
 
 use Modules\Admin\Filament\Resources\RoleResource\Pages;
 use Modules\Admin\Filament\Resources\RoleResource\RelationManagers;
-use Modules\Admin\Models\Role;
+use Spatie\Permission\Models\Role;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -17,7 +17,7 @@ class RoleResource extends Resource
 {
     protected static ?string $model = Role::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-lock';
 
     protected static function getNavigationGroup(): ?string
     {
@@ -48,14 +48,14 @@ class RoleResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -63,5 +63,5 @@ class RoleResource extends Resource
             'create' => Pages\CreateRole::route('/create'),
             'edit' => Pages\EditRole::route('/{record}/edit'),
         ];
-    }    
+    }
 }

@@ -9,6 +9,9 @@
             "email": "sorethea@gmail.com"
         }
     ],
+    "require": {
+        "spatie/laravel-permission": "5.*"
+    },
     "extra": {
         "laravel": {
             "providers": [
