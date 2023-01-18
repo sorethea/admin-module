@@ -34,6 +34,15 @@ class UserResource extends Resource
                     Forms\Components\TextInput::make("email")
                         ->unique("users","email",ignorable: fn($record)=>$record)
                         ->required(),
+                    Forms\Components\TextInput::make("password")
+                        ->password()
+                        ->same("password_confirmation")
+                        ->visibleOn("create")
+                        ->required(),
+                    Forms\Components\TextInput::make("password_confirmation")
+                        ->password()
+                        ->visibleOn("create")
+                        ->required(),
                 ])->columnSpan(2)->columns(2),
                 Forms\Components\Card::make([
 
