@@ -52,7 +52,7 @@ class UserResource extends Resource
                         ->content(fn($record)=>Carbon::make($record->created_at)->since()),
                     Forms\Components\Placeholder::make("updated_at")
                         ->visibleOn("edit")
-                        ->content(fn($record)=>Carbon::make("updated_at")->since()),
+                        ->content(fn($record)=>Carbon::make($record->updated_at)->since()),
                 ])->columnSpan(1),
             ])->columns(3);
     }
