@@ -5,6 +5,9 @@ namespace Modules\Admin\Filament\Resources;
 use Carbon\Carbon;
 use Livewire\Features\Placeholder;
 use Modules\Admin\Filament\Resources\UserResource\Pages;
+use Modules\Admin\Filament\Resources\UserResource\Pages\CreateUser;
+use Modules\Admin\Filament\Resources\UserResource\Pages\EditUser;
+use Modules\Admin\Filament\Resources\UserResource\Pages\ListUsers;
 use Modules\Admin\Filament\Resources\UserResource\RelationManagers;
 use Modules\Admin\Models\User;
 use Filament\Forms;
@@ -91,9 +94,9 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            'index' => ListUsers::route('/'),
+            'create' => CreateUser::route('/create'),
+            'edit' => EditUser::route('/{record}/edit'),
         ];
     }
 }
