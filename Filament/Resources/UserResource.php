@@ -2,6 +2,8 @@
 
 namespace Modules\Admin\Filament\Resources;
 
+use Carbon\Carbon;
+use Livewire\Features\Placeholder;
 use Modules\Admin\Filament\Resources\UserResource\Pages;
 use Modules\Admin\Filament\Resources\UserResource\RelationManagers;
 use Modules\Admin\Models\User;
@@ -45,7 +47,12 @@ class UserResource extends Resource
                         ->required(),
                 ])->columnSpan(2)->columns(2),
                 Forms\Components\Card::make([
-
+                    Forms\Components\Placeholder::make("created_at")
+                        ->visibleOn("edit")
+                        ->content(fn($record)=>Carbon::make($record->created_at)->since()),
+                    Forms\Components\Placeholder::make("updated_at")
+                        ->visibleOn("edit")
+                        ->content(fn($record)=>Carbon::make("updated_at")->since()),
                 ])->columnSpan(1),
             ])->columns(3);
     }
