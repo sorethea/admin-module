@@ -39,7 +39,7 @@ class UserResource extends Resource
                 Tables\Columns\ImageColumn::make("avatar"),
                 Tables\Columns\TextColumn::make("name")->searchable(),
                 Tables\Columns\TextColumn::make("email")->searchable(),
-                Tables\Columns\TextColumn::make("create_at")->since(),
+                Tables\Columns\TextColumn::make("created_at")->since(),
             ])
             ->filters([
                 //
