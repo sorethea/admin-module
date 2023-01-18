@@ -45,6 +45,8 @@ class UserResource extends Resource
                         ->password()
                         ->visibleOn("create")
                         ->required(),
+                    Forms\Components\SpatieMediaLibraryMultipleFileUpload::make("avatar")
+                        ->collection("avatar")->columnSpan(2)
                 ])->columnSpan(2)->columns(2),
                 Forms\Components\Card::make([
                     Forms\Components\Placeholder::make("created_at")
@@ -53,7 +55,9 @@ class UserResource extends Resource
                     Forms\Components\Placeholder::make("updated_at")
                         ->visibleOn("edit")
                         ->content(fn($record)=>Carbon::make($record->updated_at)->since()),
-                ])->columnSpan(1),
+                ])
+                    ->visibleOn("edit")
+                    ->columnSpan(1),
             ])->columns(3);
     }
 
