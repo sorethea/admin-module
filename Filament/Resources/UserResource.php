@@ -28,15 +28,24 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                //
-            ]);
+                Forms\Components\Card::make([
+                    Forms\Components\TextInput::make("name")
+                        ->required(),
+                    Forms\Components\TextInput::make("email")
+                        ->unique("users","email",ignorable: fn($record)=>$record)
+                        ->required(),
+                ])->columnSpan(2)->columns(2),
+                Forms\Components\Card::make([
+
+                ])->columnSpan(1),
+            ])->columns(3);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make("avatar"),
+                Tables\Columns\SpatieMediaLibraryImageColumn::make("avatar"),
                 Tables\Columns\TextColumn::make("name")->searchable(),
                 Tables\Columns\TextColumn::make("email")->searchable(),
                 Tables\Columns\TextColumn::make("created_at")->since(),
