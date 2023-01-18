@@ -45,7 +45,7 @@ class UserResource extends Resource
                         ->password()
                         ->visibleOn("create")
                         ->required(),
-                    Forms\Components\SpatieMediaLibraryMultipleFileUpload::make("avatar")
+                    Forms\Components\SpatieMediaLibraryFileUpload::make("avatar")
                         ->collection("avatar")->columnSpan(2)
                 ])->columnSpan(2)->columns(2),
                 Forms\Components\Card::make([
