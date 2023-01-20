@@ -19,7 +19,7 @@
                 "Modules\\Admin\\Providers\\AdminServiceProvider"
             ],
             "aliases": {
-
+                "Admin": "Modules\\Admin\\Facades\\Admin"
             }
         }
     },
