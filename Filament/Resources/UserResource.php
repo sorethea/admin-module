@@ -69,6 +69,7 @@ class UserResource extends Resource
             ->columns([
                 Tables\Columns\SpatieMediaLibraryImageColumn::make("avatar")
                     ->collection("avatar")
+                    ->rounded()
                     ->conversion("thumb"),
                 Tables\Columns\TextColumn::make("name")->searchable(),
                 Tables\Columns\TextColumn::make("email")->searchable(),
