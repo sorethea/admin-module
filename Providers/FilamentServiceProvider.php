@@ -10,6 +10,9 @@ use Spatie\LaravelPackageTools\Package;
 
 class FilamentServiceProvider extends PluginServiceProvider
 {
+
+    public static string $name = 'admin-module';
+
     private array $resourceNames=[
         'User',
         'Role',
