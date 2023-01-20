@@ -12,16 +12,10 @@ use Spatie\LaravelPackageTools\Package;
 
 class FilamentServiceProvider extends PluginServiceProvider
 {
-    protected array $resourceNames;
-
-    public function __construct($app)
-    {
-        $this->resourceNames = [
-            'User',
-            'Role',
-        ];
-    }
-
+    private array $resourceNames=[
+        'User',
+        'Role',
+    ];
     public function isEnabled(): bool{
         $module = \Module::find('admin');
         return $module->isEnabled()??false;
@@ -33,6 +27,7 @@ class FilamentServiceProvider extends PluginServiceProvider
 
     public function getResources(): array
     {
+
         foreach ($this->resourceNames as $name){
             $this->resources[]="Modules\\Admin\\Filament\\Resources\\{$name}";
         }
