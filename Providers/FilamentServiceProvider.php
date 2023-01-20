@@ -26,7 +26,7 @@ class FilamentServiceProvider extends PluginServiceProvider
     }
     public function isEnabled(): bool{
         $module = \Module::find('admin');
-        return $module->isEnabled();
+        return $module?->isEnabled();
     }
     public function configurePackage(Package $package): void
     {
