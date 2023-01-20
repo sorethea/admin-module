@@ -42,10 +42,10 @@ class FilamentServiceProvider extends PluginServiceProvider
 
     public function boot():void
     {
-//        foreach ($this->resourceNames as $name){
-//            Livewire::component("Create{$name}","Modules\\Admin\\Filament\\Resources\\{$name}Resource\\Pages\\Create{$name}");
-//            Livewire::component("Edit{$name}","Modules\\Admin\\Filament\\Resources\\{$name}Resource\\Pages\\Edit{$name}");
-//        }
+        foreach ($this->resourceNames as $name){
+            Livewire::component("Create{$name}","Modules\\Admin\\Filament\\Resources\\{$name}Resource\\Pages\\Create{$name}");
+            Livewire::component("Edit{$name}","Modules\\Admin\\Filament\\Resources\\{$name}Resource\\Pages\\Edit{$name}");
+        }
         Filament::serving(function (){
             if(config('admin.navigation-group.enabled'))
             Filament::registerNavigationGroups([
