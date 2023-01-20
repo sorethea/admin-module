@@ -29,7 +29,7 @@ class FilamentServiceProvider extends PluginServiceProvider
     {
 
         foreach ($this->resourceNames as $name){
-            $this->resources[]="Modules\\Admin\\Filament\\Resources\\{$name}";
+            $this->resources[]="Modules\\Admin\\Filament\\Resources\\{$name}Resource";
         }
         return ($this->isEnabled())?$this->resources:[];
     }
