@@ -47,6 +47,7 @@ class UserResource extends Resource
                         ->required(),
                     Forms\Components\SpatieMediaLibraryFileUpload::make("avatar")
                         ->collection("avatar")
+                        ->conversion("thumb")
                         ->columnSpan(2),
                 ])->columnSpan(2)->columns(2),
                 Forms\Components\Card::make([
@@ -67,6 +68,7 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\SpatieMediaLibraryImageColumn::make("avatar")
+                    ->collection("avatar")
                     ->conversion("thumb"),
                 Tables\Columns\TextColumn::make("name")->searchable(),
                 Tables\Columns\TextColumn::make("email")->searchable(),
