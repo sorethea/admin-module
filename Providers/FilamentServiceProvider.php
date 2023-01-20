@@ -20,7 +20,7 @@ class FilamentServiceProvider extends PluginServiceProvider
     }
     public function configurePackage(Package $package): void
     {
-        $package->name('admin');
+        $package->name('admin-module');
     }
 
     public function getResources(): array
