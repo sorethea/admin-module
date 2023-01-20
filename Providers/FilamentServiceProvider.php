@@ -14,16 +14,14 @@ class FilamentServiceProvider extends PluginServiceProvider
 {
     protected array $resourceNames;
 
-    /**
-     * @return array
-     */
-    public function getResourceNames(): array
+    public function __construct($app)
     {
-        return [
-            "User",
-            "Role",
+        $this->resourceNames = [
+            'User',
+            'Role',
         ];
     }
+
     public function isEnabled(): bool{
         $module = \Module::find('admin');
         return $module->isEnabled()??false;
