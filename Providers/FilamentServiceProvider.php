@@ -6,8 +6,6 @@ use Filament\Facades\Filament;
 use Filament\Navigation\NavigationGroup;
 use Filament\PluginServiceProvider;
 use Livewire\Livewire;
-use Modules\Admin\Filament\Resources\RoleResource;
-use Modules\Admin\Filament\Resources\UserResource;
 use Spatie\LaravelPackageTools\Package;
 
 class FilamentServiceProvider extends PluginServiceProvider
