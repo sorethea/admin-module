@@ -2,9 +2,9 @@
 
 namespace Modules\Admin\Filament\Resources\RoleResource\Pages;
 
+use Modules\Admin\Filament\Resources\RoleResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
-use Modules\Admin\Filament\Resources\RoleResource;
 
 class EditRole extends EditRecord
 {
