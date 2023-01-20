@@ -8,9 +8,9 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Sorethea\Admin\Filament\Resources\RoleResource\Pages\CreateRole;
-use Sorethea\Admin\Filament\Resources\RoleResource\Pages\EditRole;
-use Sorethea\Admin\Filament\Resources\RoleResource\Pages\ListRoles;
+use Modules\Admin\Filament\Resources\RoleResource\Pages\CreateRole;
+use Modules\Admin\Filament\Resources\RoleResource\Pages\EditRole;
+use Modules\Admin\Filament\Resources\RoleResource\Pages\ListRoles;
 use Spatie\Permission\Models\Role;
 
 class RoleResource extends Resource

@@ -3,7 +3,7 @@
 namespace Modules\Admin\Filament\Resources\RoleResource\Pages;
 
 use Filament\Resources\Pages\CreateRecord;
-use Sorethea\Admin\Filament\Resources\RoleResource;
+use Modules\Admin\Filament\Resources\RoleResource;
 
 class CreateRole extends CreateRecord
 {

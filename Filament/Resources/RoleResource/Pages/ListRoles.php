@@ -1,10 +1,10 @@
 <?php
 
-namespace Sorethea\Admin\Filament\Resources\RoleResource\Pages;
+namespace Modules\Admin\Filament\Resources\RoleResource\Pages;
 
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
-use Sorethea\Admin\Filament\Resources\RoleResource;
+use Modules\Admin\Filament\Resources\RoleResource;
 
 class ListRoles extends ListRecords
 {

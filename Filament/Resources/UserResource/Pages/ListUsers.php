@@ -1,10 +1,10 @@
 <?php
 
-namespace Sorethea\Admin\Filament\Resources\UserResource\Pages;
+namespace Modules\Admin\Filament\Resources\UserResource\Pages;
 
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
-use Sorethea\Admin\Filament\Resources\UserResource;
+use Modules\Admin\Filament\Resources\UserResource;
 
 class ListUsers extends ListRecords
 {
