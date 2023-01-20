@@ -5,22 +5,29 @@ namespace Modules\Admin\Providers;
 use Filament\Facades\Filament;
 use Filament\Navigation\NavigationGroup;
 use Filament\PluginServiceProvider;
+use Livewire\Livewire;
 use Modules\Admin\Filament\Resources\RoleResource;
 use Modules\Admin\Filament\Resources\UserResource;
 use Spatie\LaravelPackageTools\Package;
-use Modules\Admin\Filament\Pages\AdminPage;
 
 class FilamentServiceProvider extends PluginServiceProvider
 {
+    protected array $resourceNames;
+
+    /**
+     * @return array
+     */
+    public function getResourceNames(): array
+    {
+        return [
+            "User",
+            "Role",
+        ];
+    }
     public function isEnabled(): bool{
         $module = \Module::find('admin');
         return $module->isEnabled();
     }
-    protected array $pages = [];
-    protected array $resources =[
-        UserResource::class,
-        RoleResource::class,
-    ];
     public function configurePackage(Package $package): void
     {
         $package->name('admin');
@@ -28,6 +35,9 @@ class FilamentServiceProvider extends PluginServiceProvider
 
     public function getResources(): array
     {
+        foreach ($this->resourceNames as $name){
+            $this->resources[]="Modules\\Admin\\Filament\\Resources\\{$name}";
+        }
         return ($this->isEnabled())?$this->resources:[];
     }
 
@@ -38,6 +48,10 @@ class FilamentServiceProvider extends PluginServiceProvider
 
     public function boot():void
     {
+        foreach ($this->resourceNames as $name){
+            Livewire::component("Create{$name}","Modules\\Admin\\Filament\\Resources\\{$name}Resource\\Pages\\Create{$name}");
+            Livewire::component("Edit{$name}","Modules\\Admin\\Filament\\Resources\\{$name}Resource\\Pages\\Edit{$name}");
+        }
         Filament::serving(function (){
             if(config('admin.navigation-group.enabled'))
             Filament::registerNavigationGroups([

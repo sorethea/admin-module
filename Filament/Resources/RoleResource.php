@@ -2,33 +2,30 @@
 
 namespace Modules\Admin\Filament\Resources;
 
-use Modules\Admin\Filament\Resources\RoleResource\Pages;
-use Modules\Admin\Filament\Resources\RoleResource\RelationManagers;
-use Spatie\Permission\Models\Role;
-use Filament\Forms;
+
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Sorethea\Admin\Filament\Resources\RoleResource\Pages\CreateRole;
+use Sorethea\Admin\Filament\Resources\RoleResource\Pages\EditRole;
+use Sorethea\Admin\Filament\Resources\RoleResource\Pages\ListRoles;
+use Spatie\Permission\Models\Role;
 
 class RoleResource extends Resource
 {
     protected static ?string $model = Role::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-key';
-
-    protected static function getNavigationGroup(): ?string
-    {
-        return config('admin.navigation-group.name');
-    }
+    protected static ?string $navigationIcon = 'heroicon-o-light-bulb';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                TextInput::make("name")
+                    ->unique("roles","name",fn($record)=>$record)
+                    ->required(),
             ]);
     }
 
@@ -36,7 +33,7 @@ class RoleResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make("name")->searchable(),
             ])
             ->filters([
                 //
@@ -59,9 +56,9 @@ class RoleResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRoles::route('/'),
-            'create' => Pages\CreateRole::route('/create'),
-            'edit' => Pages\EditRole::route('/{record}/edit'),
+            'index' => ListRoles::route('/'),
+            'create' => CreateRole::route('/create'),
+            'edit' => EditRole::route('/{record}/edit'),
         ];
     }
 }
